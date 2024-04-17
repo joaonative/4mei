@@ -22,20 +22,20 @@ const PostCard = ({ post }: Props) => {
 
   return (
     <div className="flex flex-col gap-4 px-6 py-4 rounded-2xl bg-white">
+      <div className="flex items-center justify-between">
+        <Link to={`/autonomo/${post.id}`} className="flex items-center gap-2">
+          <img
+            src={post.author.imageUrl}
+            alt=""
+            className="w-8 h-8 object-cover rounded-full bg-primary"
+          />
+          <h1 className="text-xl font-bold">{post.author.name}</h1>
+        </Link>
+        <h2 className="text-base font-semibold text-primary">
+          {post.author.job}
+        </h2>
+      </div>
       <Link to={`/post/${post.id}`} className="flex flex-col gap-4">
-        <div className="flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <img
-              src={post.authorImageUrl}
-              alt=""
-              className="w-8 h-8 object-cover rounded-full bg-primary"
-            />
-            <h1 className="text-xl font-bold">{post.authorName}</h1>
-          </div>
-          <h2 className="text-base font-semibold text-primary">
-            {post.authorJob}
-          </h2>
-        </div>
         <img
           src={post.imageUrl}
           alt=""
@@ -84,8 +84,10 @@ const PostCard = ({ post }: Props) => {
         post.comments.map((comment) => (
           <div className="flex items-center gap-2 text-white bg-primary p-3 rounded-xl">
             <User size={24} className="" />
-            <h2>{comment.name}:</h2>
-            <blockquote>{comment.comment}</blockquote>
+            <h2 className="w-max line-clamp-1">{comment.name}:</h2>
+            <blockquote className="max-w-[312px] line-clamp-1">
+              {comment.comment}
+            </blockquote>
           </div>
         ))}
       <div className="flex items-center px-2 lg:px-5 py-3 justify-between bg-[#f1f1f1] rounded-2xl">

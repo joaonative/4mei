@@ -6,10 +6,10 @@ const Header = () => {
   const { user } = useUser();
   return (
     <>
-      <header className="bg-white flex items-center justify-between px-5 lg:px-20 py-4 text-primary font-bold lg:border-b-0 border-b-[3px] border-primary">
-        <span className="text-2xl">
-          <h1>4Mei</h1>
-        </span>
+      <header className="bg-white flex items-center justify-between px-5 lg:px-20 py-4 text-primary font-bold">
+        <Link to={"/"} className="text-2xl">
+          4Mei
+        </Link>
         <nav className="hidden text-xl lg:flex items-center gap-12 pr-4">
           <Link to={"/"}>Home</Link>
           <Link to={"/sobre"}>Sobre</Link>
@@ -27,7 +27,7 @@ const Header = () => {
           <h2>{user.name}</h2>
         </Link>
       </header>
-      <nav className="lg:hidden fixed bottom-0 w-full flex items-center justify-between px-5 py-4 bg-white border-t-[3px] border-primary">
+      <nav className="lg:hidden fixed bottom-0 w-full flex items-center justify-between px-5 py-4 bg-white">
         <Link to={"/"}>
           <Home size={32} className="text-primary" />
         </Link>
